@@ -16,7 +16,27 @@
     --font-mono: 'JetBrains Mono', monospace;
 }
 
-body{
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
     background: var(--bg-base);
-    color: var(--text-primary);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-body);
+    font-size: 1.5rem;
 }
+
+.nav__links{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav__links a{color: var(--text-secondary); text-decoration: none;}
+
+.nav__brand{text-decoration: none; color: var(--text-secondary);}
