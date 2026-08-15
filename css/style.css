@@ -1,0 +1,247 @@
+/*Navegação*/
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    background: var(--bg-base);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-body);
+}
+
+body{
+    background: var(--bg-base);
+    color: var(--text-primary);
+}
+
+.nav__links{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav__links a{color: var(--text-secondary); text-decoration: none;}
+
+.nav__brand{text-decoration: none; color: var(--text-secondary);}
+
+/*Hero*/
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 2rem 2rem;
+}
+
+.hero__content{
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.hero__title{
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.hero__title em{
+    color: var(--accent-amber);
+    font-style: italic;
+}
+
+.hero__hole{
+    font-family: var(--font-mono);
+    color: var(--accent-moss);
+}
+
+.hero__desc{
+    color: var(--text-secondary);
+    max-width: 46ch;
+}
+
+.hero__image{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero__figure{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero__figure::before{
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(232, 181, 99, 0.25) 0%, rgba(232, 181, 99, 0) 70%);
+    z-index: 0;
+}
+
+/*Badge*/
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-moss);
+    border: 1px solid var(--accent-moss);
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+}
+
+.badge__dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-moss);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0.3;}
+}
+
+.hero{
+    display: none;
+}
+/*Botões*/
+.hero__actions{
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.85rem 1.6rem;
+    border-radius: 100px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+}
+
+.btn--primary{
+    background: var(--accent-amber);
+    color: var(--bg-base);
+}
+
+.btn--ghost{
+    border: 1px solid var(--line);
+    color: var(--text-primary);
+}
+
+/*Projetos*/
+.section {
+    padding: 6rem 2rem;
+}
+
+.section__inner{
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.eyebrow{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-moss);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.section__title{
+    font-family: var(--font-display);
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.projects-track{
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+}
+
+.project-card{
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}
+
+.project-card__image{
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
+
+.project-card__image--placeholder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    aspect-ratio: 16/10;
+}
+
+.project-card__body{
+    padding: 1.5rem;;
+}
+
+.project-card__body h3{
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card__body p{
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-card__tags{
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.project-card__tags li{
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent-moss);
+    border: 1px solid var(--accent-moss);
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+}
