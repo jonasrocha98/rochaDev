@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>devJonas</title>
     <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600 family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,5 +21,61 @@
             </ul>
         </nav>
     </header>
+    <section id="home" class="hero">
+        <div class="hero__content">
+            <div class="hero__text">
+                <span class="badge">
+                    <span class="badge__dot"></span> aberto a oportunidade
+                </span>
+                <h1 class="hero__title">
+                    Jonas <em>Rocha</em>
+                </h1>
+                <p class="hero__role">Desenvolvedor Java &amp; Python</p>
+                <p class="hero__desc">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur saepe voluptatem ipsa quis culpa illum velit minima eum, deleniti quasi dolor esse, fuga ea eaque enim, quo rem quidem officiis.
+                </p>
+                <div class="hero__actions">
+                    <a href="#projetos" class="btn btn--primary">Ver projetos</a>
+                    <a href="#contato" class="btn btn--ghost">Falar comigo</a>
+                </div>
+            </div>
+            <div class="hero__figure">
+                <img src="assets/hobbit-02-removebg-preview.png" alt="Ilustração de Jonas em estilo hobbit" class="hero__image">
+            </div>
+        </div>
+    </section>
+    <section id="projetos" class="section projetos">
+        <div class="section__inner">
+           <span class="eyebrow">Projetos</span>
+            <h2 class="section__title">O que já construí</h2>
+
+            <div class="projects-track">
+                <article class="project-card">
+                    <img src="assets/gyro01.png" alt="Tela do sistema Gyro Serviços" class="project-card__image">
+                    <div class="project-card__body">
+                        <h3>Gyro Serviços</h3>
+                        <p>Lorem ipsum dolor sit amet — sistema de gestão de manutenção de frota.</p>
+                        <ul class="project-card__tags">
+                            <li>Flask</li>
+                            <li>PostgreSQL</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card__image project-card__image--placeholder">em construção</div>
+                    <div class="project-card__body">
+                        <h3>Gyro Serviços — Java Edition</h3>
+                        <p>Lorem ipsum dolor sit amet — reconstrução em Java com Spring Boot.</p>
+                        <ul class="project-card__tags">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

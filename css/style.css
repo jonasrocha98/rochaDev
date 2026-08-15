@@ -121,9 +121,6 @@ body{
     50% {opacity: 0.3;}
 }
 
-.hero{
-    display: none;
-}
 /*Botões*/
 .hero__actions{
     display: flex;
