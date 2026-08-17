@@ -11,28 +11,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600 family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
     <header class="nav">
-        <a href="#" class="nav__brand">jonas<span>.</span>dev</a>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <a href="#home" class="nav__brand">rocha<span class="dot">.</span>dev</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navLinks">
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#contato" class="nav__cta">Contato</a></li>
+        </ul>
     </header>
+
+    <!-- ===HERO==== -->
     <section id="home" class="hero">
         <div class="hero__content">
             <div class="hero__text">
                 <span class="badge">
-                    <span class="badge__dot"></span> aberto a oportunidade
+                    <span class="badge__dot"></span> aberto a oportunidades
                 </span>
                 <h1 class="hero__title">
                     Jonas <em>Rocha</em>
                 </h1>
-                <p class="hero__role">Desenvolvedor Java &amp; Python</p>
+                <p class="hero__role">Desenvolvedor Full Stack</p>
                 <p class="hero__desc">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur saepe voluptatem ipsa quis culpa illum velit minima eum, deleniti quasi dolor esse, fuga ea eaque enim, quo rem quidem officiis.
+                    Em uma toca no chão, codava um dev...
                 </p>
                 <div class="hero__actions">
                     <a href="#projetos" class="btn btn--primary">Ver projetos</a>
@@ -77,5 +83,7 @@
             </div>
         </div>
     </section>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

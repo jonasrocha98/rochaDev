@@ -1,11 +1,13 @@
 :root{
     --bg-base: #1b1712;
     --bg-elevated: #2a2318;
+    --bg-elevated-2: #241E14;
 
     --text-primary: #ede4d3;
     --text-secondary: #a89a82;
 
     --accent-moss: #7a9b6e;
+    --accent-moss-dim: #5C7A53;
     --accent-amber: #e8b563;
 
     --line: #3d3527;
@@ -14,4 +16,8 @@
     --font-display: 'Fraunces', serif; /* Titles */
     --font-body: 'Manrope', sans-serif; /* */
     --font-mono: 'JetBrains Mono', monospace;
+
+    --section-pad: 7rem;
+    --content-width: 1120px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
