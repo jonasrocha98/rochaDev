@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,45 +19,60 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav__links" id="navLinks">
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#about">Sobre</a></li>
             <li><a href="#stack">Stack</a></li>
-            <li><a href="#contato" class="nav__cta">Contato</a></li>
+            <li><a href="#contact" class="nav__cta">Contato</a></li>
         </ul>
     </header>
 
     <!-- ===HERO==== -->
     <section id="home" class="hero">
+        <div class="hero__blobs" aria-hidden="true">
+            <span class="blob blob--moss"></span>
+            <span class="blob blob--amber"></span>
+            <span class="blob blob--ring"></span>
+        </div>
+
         <div class="hero__content">
-            <div class="hero__text">
+            <div class="hero__text reveal">
                 <span class="badge">
                     <span class="badge__dot"></span> aberto a oportunidades
                 </span>
                 <h1 class="hero__title">
-                    Jonas <em>Rocha</em>
+                    Desenvolvedor <em>Full&nbsp;Stack</em>
                 </h1>
-                <p class="hero__role">Desenvolvedor Full Stack</p>
+                <p class="hero__role">JAVA &bull; Docker &bull; PostgreSQL</p>
                 <p class="hero__desc">
-                    Em uma toca no chão, codava um dev...
+                    Não sou bom com aventuras. Só com bugs em produção
                 </p>
                 <div class="hero__actions">
-                    <a href="#projetos" class="btn btn--primary">Ver projetos</a>
-                    <a href="#contato" class="btn btn--ghost">Falar comigo</a>
+                    <a href="#projects" class="btn btn--primary">Ver projetos </a>
+                    <a href="#contact" class="btn btn--ghost">Falar comigo</a>
                 </div>
             </div>
-            <div class="hero__figure">
-                <img src="assets/hobbit-02-removebg-preview.png" alt="Ilustração de Jonas em estilo hobbit" class="hero__image">
+
+            <div class="hero__figure reveal reveal--delay">
+                <div class="hero__image-wrap">
+                    <img src="assets/hobbit-02-removebg-preview.png" alt="Ilustration of Jonas playing bass" class="hero__image">
+                </div>
             </div>
         </div>
+
+        <a href="#projects" class="scroll-hint" aria-label="Scroll to section projects">
+            <span></span>
+        </a>
     </section>
-    <section id="projetos" class="section projetos">
+
+     <!--===PROJETCTS===-->
+    <section id="projects" class="section projects">
         <div class="section__inner">
            <span class="eyebrow">Projetos</span>
             <h2 class="section__title">O que já construí</h2>
 
             <div class="projects-track">
                 <article class="project-card">
-                    <img src="assets/gyro01.png" alt="Tela do sistema Gyro Serviços" class="project-card__image">
+                    <img src="assets/projects/gyro01.png" alt="Tela do sistema Gyro Serviços" class="project-card__image">
                     <div class="project-card__body">
                         <h3>Gyro Serviços</h3>
                         <p>Lorem ipsum dolor sit amet — sistema de gestão de manutenção de frota.</p>
