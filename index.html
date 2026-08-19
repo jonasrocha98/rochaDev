@@ -67,38 +67,70 @@
      <!--===PROJETCTS===-->
     <section id="projects" class="section projects">
         <div class="section__inner">
-           <span class="eyebrow">Projetos</span>
-            <h2 class="section__title">O que já construí</h2>
 
-            <div class="projects-track">
-                <article class="project-card">
-                    <img src="assets/projects/gyro01.png" alt="Tela do sistema Gyro Serviços" class="project-card__image">
+            <div class="section__heading-row reveal">
+                <div>
+                    <span class="eyebrow">Projetos</span>
+                    <h2 class="section__title">O que já construí</h2>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="prevProject" aria-label="Projeto anterior">←</button>
+                    <button class="carousel-btn" id="nextProject" aria-label="Próximo projeto">→</button>
+                </div>
+            </div>
+
+            <div class="projects-track" id="projectsTrack">
+
+                <article class="project-card reveal" data-project="gyro">
+                    <div class="project-card__image">
+                        <img src="assets/projects/gyro01.png" alt="Tela do sistema Gyro Serviços">
+                        <span class="project-card__status">em produção</span>
+                    </div>
+                    
                     <div class="project-card__body">
                         <h3>Gyro Serviços</h3>
-                        <p>Lorem ipsum dolor sit amet — sistema de gestão de manutenção de frota.</p>
+                        <p class="project-card__desc">Lorem ipsum dolor sit amet — sistema de gestão de manutenção de frota.</p>
                         <ul class="project-card__tags">
                             <li>Flask</li>
                             <li>PostgreSQL</li>
                             <li>Docker</li>
                         </ul>
+                        <button class="link-arrow" data-open-project="gyro">Ver detalhes _&gt;</button>
                     </div>
                 </article>
 
-                <article class="project-card">
-                    <div class="project-card__image project-card__image--placeholder">em construção</div>
+                <article class="project-card reveal" data-project="csvWriter">
+                    <div class="project-card__image project-card__image--placeholder">
+                        <span>em construção</span>
+                    </div>
                     <div class="project-card__body">
-                        <h3>Gyro Serviços — Java Edition</h3>
-                        <p>Lorem ipsum dolor sit amet — reconstrução em Java com Spring Boot.</p>
+                        <h3>csvWriter — Conversor de arquivos</h3>
+                        <p class="project-card__desc">Lorem ipsum dolor sit amet — reconstrução em Java com Spring Boot.</p>
                         <ul class="project-card__tags">
                             <li>Java</li>
-                            <li>Spring Boot</li>
                         </ul>
+                        <button class="link-arrow" data-open-project="csvWriter">Ver detalhes _&gt;</button>
                     </div>
                 </article>
+
+                <!--===PLACEHOLDER FOR NEXT PROJECTS===-->
+                <article class="project-card project-card--empty reveal">
+                    <div class="project-card__body project-card__body--center">
+                        <p>Em breve, novos projetos</p>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
+    <!--===MODAL OF PROJECTS===-->
+    <dialog id="projectModal" class="project-modal">
+        <button class="project-modal__close" id="closeModal" aria-label="Close">&times;</button>
+        <div class="project-modal__content" id="modalContent">
+            <!--===fILLED BY JS===-->
+        </div>
+    </dialog>
     <script src="js/script.js"></script>
 </body>
 </html>
