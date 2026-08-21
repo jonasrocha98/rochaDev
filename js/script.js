@@ -1,10 +1,12 @@
+
+// === NAV ===
 const nav = document.querySelector('.nav');
 
 window.addEventListener('scroll', () => {
   nav.classList.toggle('nav--scrolled', window.scrollY > 40);
 });
 
-// ===================== MENU MOBILE =====================
+// === MENU MOBILE ===
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -20,7 +22,19 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ===CAROUSEL PROJECTS===
+// === SCROLL REVEAL ===
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// === CAROUSEL PROJECTS ===
 const track = document.getElementById('projectsTrack');
 const prevBtn = document.getElementById('prevProject');
 const nextBtn = document.getElementById('nextProject');
@@ -44,7 +58,7 @@ track.addEventListener('scroll', updateCarouselButtons, { passive: true });
 window.addEventListener('load', updateCarouselButtons);
 window.addEventListener('resize', updateCarouselButtons);
 
-// ===PROJECT MODALS===
+// === PROJECT MODALS ===
 const projectData = {
   'gyro': {
     title: 'Gyro Serviços',
@@ -93,3 +107,11 @@ document.querySelectorAll('[data-open-project]').forEach(btn => {
 });
 
 closeModalBtn.addEventListener('click', () => modal.close());
+
+// Close by clicking outside the content
+modal.addEventListener('click', (e) =>{
+  const rect = modalContent.getBoundingClientRect();
+  const clickedOutside = 
+    e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
+  if(clickedOutside) modal.close();
+});
