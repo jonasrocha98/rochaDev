@@ -68,6 +68,7 @@ button{
 .section {
     padding: var(--section-pad) 1.5rem;
     position: relative;
+    scroll-margin-top: 90px;
 }
 
 section:nth-of-type(even){
@@ -191,7 +192,7 @@ section:nth-of-type(even){
     background: var(--accent-moss-dim);
 }
 
-/*===HERO===*/
+/* === HERO === */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -406,6 +407,32 @@ section:nth-of-type(even){
 @keyframes scrollDown {
     0% {opacity: 1; transform: translateY(0);}
     100% {opacity: 0; transform: translateY(10px);}
+}
+
+.terminal-line{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    min-height: 1.4em;
+    position: absolute;
+}
+
+.terminal-line__prompt {
+    color: var(--accent-amber);
+}
+
+.terminal-line__cursor{
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink{
+    0%, 100% {opacity: 1;}
+    50% {opacity: 0;}
 }
 
 /*===PROJECTS===*/
@@ -696,13 +723,15 @@ section:nth-of-type(even){
     background: var(--bg-elevated); border-bottom: 1px solid var(--line);
     max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease);
   }
-  .nav--scrolled {top: 1rem;}
   .nav--scrolled .nav__links { top: 60px; }
   .nav__links.is-open { max-height: 400px; }
   .nav__links li { width: 100%; padding: 1rem 2rem; border-top: 1px solid var(--line); }
   .nav__toggle { display: flex; }
   .nav__cta { display: inline-block; }
 
+  .section{
+    scroll-margin-top: 70px;
+  }
   .section__heading-row{
     flex-direction: column;
     align-items: flex-start;
@@ -713,6 +742,7 @@ section:nth-of-type(even){
   }
 
   :root{--section-pad: 4.5rem;}
+
 }
 
 @media (max-width: 900px){
@@ -720,4 +750,13 @@ section:nth-of-type(even){
     .hero__figure { order: -1; }
     .hero__image-wrap { width: min(70%, 320px); margin: 0 auto; }
     .blob--moss, .blob--amber, .blob--ring { display: none; }
+
+    .about__grid{
+        grid-template-columns: 1fr;
+    }
+
+    .about__portrait-frame{
+        max-width: 240px;
+    }
 }
+

@@ -22,6 +22,46 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
+// === HERO TERMINAL ===
+const typewriterMessages = [
+  'aguardando aventuras...',
+  'ou bugs em produção...',
+  'às 2h da manhã...'
+];
+
+const typewriterEl = document.getElementById('typewriterText');
+let messageIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeLoop() {
+  const currentMessage = typewriterMessages[messageIndex];
+  const isLastMessage = messageIndex === typewriterMessages.length - 1;
+
+  if (isDeleting) {
+    charIndex--;
+  } else {
+    charIndex++;
+  }
+
+  typewriterEl.textContent = currentMessage.substring(0, charIndex);
+
+  let delay = isDeleting ? 60 : 100;
+
+  if (!isDeleting && charIndex === currentMessage.length) {
+    delay = 1800; // pause at the end of the sentence, before deleting
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    messageIndex = (messageIndex + 1) % typewriterMessages.length;
+    delay = isLastMessage ? 15000 : 400; // pause before starting the next one
+  }
+
+  setTimeout(typeLoop, delay);
+}
+
+typeLoop();
+
 // === SCROLL REVEAL ===
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
