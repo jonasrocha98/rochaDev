@@ -453,12 +453,12 @@ section:nth-of-type(even){
     overflow: hidden;
     flex: 0 0 min(380px, 85vw);
     scroll-snap-align: start;
-    transition: border-color 0.3s ease, transform 0.3 var(--ease), box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.4 var(--ease), box-shadow 0.3s ease;
 }
 
 .project-card:hover{
     border-color: var(--accent-moss);
-    transform: translateY(2px) translateX(2px);
+    transform: translateY(2px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
@@ -634,6 +634,57 @@ section:nth-of-type(even){
     margin-bottom: 0;
 }
 
+
+/* === ABOUT === */
+.about__grid{
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3rem;
+    margin-top: 2rem;
+    align-items: start;
+}
+
+.about__portrait-frame{
+    position: relative;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.about__portrait-frame img{
+    border-radius: 16px;
+}
+
+.doodle-tag{
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent-amber);
+    border: 1px dashed var(--accent-amber);
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    background: var(--bg-base);
+}
+
+.doodle-tag--top{
+    top: -14px; left: -18px;
+}
+
+.doodle-tag--bottom{
+    bottom: -14px; right: -18px;
+    transform: rotate(3deg);
+}
+
+.about__text p{
+    color: var(--text-secondary);
+    margin-bottom: 1.1rem;
+}
+
+.about__extra{
+    color: var(--text-primary) !important;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent-amber);
+    margin-bottom: 1.5rem;
+}
 
 /* ========================
        RESPONSIVE
