@@ -98,6 +98,41 @@ track.addEventListener('scroll', updateCarouselButtons, { passive: true });
 window.addEventListener('load', updateCarouselButtons);
 window.addEventListener('resize', updateCarouselButtons);
 
+// === ANIMATED COUNTER (STATS)===
+const statNumbers = document.querySelectorAll('.stat__number');
+
+function animatedCount(el){
+  const target = el.getAttribute('data-count');
+  const isNumeric = /^\d+$/.test(target);
+  if(!isNumeric){
+    el.textContent = target;
+    return;
+  }
+
+  const targetNum = parseInt(target, 10);
+  const duration = 1200;
+  const startTime = performance.now();
+
+  function step(now){
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * targetNum);
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = targetNum;
+  }
+  requestAnimationFrame(step);
+}
+
+const statsObserver = new IntersectionObserver((entries) =>{
+  entries.forEach(entry =>{
+    if(entry.isIntersecting){
+      animatedCount(entry.target);
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5});
+statNumbers.forEach(el => statsObserver.observe(el));
+
 // === PROJECT MODALS ===
 const projectData = {
   'gyro': {
@@ -155,3 +190,49 @@ modal.addEventListener('click', (e) =>{
     e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom;
   if(clickedOutside) modal.close();
 });
+
+// === TECH MARQUEE (infinite, hover to slow ===
+const marquee = document.getElementById('techMarquee');
+const marqueeTrack = document.getElementById('techMarqueeTrack');
+
+// saves the original HTML (a single set) before duplicating
+const originalTrackHTML = marqueeTrack.innerHTML;
+
+function fillTrack() {
+  marqueeTrack.innerHTML = originalTrackHTML;
+
+  // repeatedly doubles until the track is at 2.5x wider than the visible screen
+  while (marqueeTrack.scrollWidth < marquee.clientWidth * 2.5) {
+    marqueeTrack.innerHTML += originalTrackHTML;
+  }
+}
+
+fillTrack();
+
+let position = 0;
+const normalSpeed = 0.4;
+const slowSpeed = 0.08;
+let currentSpeed = normalSpeed;
+let targetSpeed = normalSpeed;
+
+marquee.addEventListener('mouseenter', () => { targetSpeed = slowSpeed; });
+marquee.addEventListener('mouseleave', () => { targetSpeed = normalSpeed; });
+
+function animateMarquee() {
+  currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+  position -= currentSpeed;
+
+  // It resets after traveling the width of ONE original set (not the entire track).
+  const singleSetWidth = marqueeTrack.scrollWidth / (marqueeTrack.children.length / 8); // 8 = number of original icons
+  if (position <= -singleSetWidth) {
+    position += singleSetWidth;
+  }
+
+  marqueeTrack.style.transform = `translateX(${position}px)`;
+  requestAnimationFrame(animateMarquee);
+}
+
+animateMarquee();
+
+// reconstruct the number of copies if the screen is resized
+window.addEventListener('resize', fillTrack);
