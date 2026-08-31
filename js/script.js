@@ -268,3 +268,6 @@ contactForm.addEventListener('submit', async (e) =>{
     submitBtn.textContent = 'Enviar mensagem';
   }
 });
+
+// === YEAR ON FOOTER ===
+document.getElementById('year').textContent = new Date().getFullYear();
