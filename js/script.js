@@ -25,7 +25,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 // === HERO TERMINAL ===
 const typewriterMessages = [
   'aguardando aventuras...',
-  'ou bugs em produção...',
+  'ou bugs em produção',
   'às 2h da manhã...'
 ];
 
@@ -236,3 +236,35 @@ animateMarquee();
 
 // reconstruct the number of copies if the screen is resized
 window.addEventListener('resize', fillTrack);
+
+// === CONTACT FORM (formspree) ===
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', async (e) =>{
+  e.preventDefault();
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando...";
+  formStatus.textContent = '';
+
+  try{
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: {'Accept': 'application/json'}
+    });
+
+    if (response.ok){
+      formStatus.textContent = 'Mensagem enviada! Retorno em breve.';
+      contactForm.reset();
+    } else{
+      formStatus.textContent = 'Algo deu errado. Tenta de novo ou usa o e-mail direto.';
+    }
+  } catch (err){
+    formStatus.textContent = 'Sem conexão com o servidor de envio no momento.'
+  } finally{
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar mensagem';
+  }
+});

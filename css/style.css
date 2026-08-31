@@ -765,6 +765,7 @@ section:nth-of-type(even){
   width: max-content;
   will-change: transform;
   padding: 1rem;
+  background: var(--bg-elevated);
 }
 
 .tech-icon {
@@ -812,9 +813,78 @@ section:nth-of-type(even){
   opacity: 1;
 }
 
-/* ========================
-       RESPONSIVE
-=========================*/
+/* === CONTACT === */
+.contact__grid{
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.field{ margin-bottom: 1.25rem;}
+.field label{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+.field input, .field textarea{
+    width: 100%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color 0.25s ease;
+}
+.field input:focus, .field textarea:focus{
+    border-color: var(--accent-moss);
+    outline: none;
+}
+
+.form-status{
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--accent-moss);
+    min-height: 1.2em;
+}
+
+.contact__links{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-link{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition: border-color 0.25s ease, transform 0.25s var(--ease);
+}
+.contact-link:hover{
+    border-color: var(--accent-amber);
+    transform: translateX(4px);
+}
+.contact-link span{
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+.contact-link strong{
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 640px) {
   .nav__links {
     position: fixed; top: 68px; left: 0; right: 0;
@@ -860,6 +930,10 @@ section:nth-of-type(even){
 
     .about__portrait-frame{
         max-width: 240px;
+    }
+
+    .contact__grid{
+        grid-template-columns: 1fr;
     }
 }
 

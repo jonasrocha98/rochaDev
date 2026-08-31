@@ -21,7 +21,7 @@
         <ul class="nav__links" id="navLinks">
             <li><a href="#projects">Projetos</a></li>
             <li><a href="#about">Sobre</a></li>
-            <li><a href="#stack">Stack</a></li>
+            <li><a href="#stack">Tecnologias</a></li>
             <li><a href="#contact" class="nav__cta">Contato</a></li>
         </ul>
     </header>
@@ -194,7 +194,7 @@
 
  <section id="stack" class="section tech-showcase">
   <div class="section__inner">
-    <span class="eyebrow reveal">Technologies</span>
+    <span class="eyebrow reveal">Tecnologias</span>
     <p class="tech-showcase__subtitle reveal">
         Em busca do domínio
     </p>
@@ -202,17 +202,80 @@
 
   <div class="tech-marquee" id="techMarquee">
     <div class="tech-marquee__track" id="techMarqueeTrack">
-      <div class="tech-icon" data-tooltip="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
-      <div class="tech-icon" data-tooltip="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-      <div class="tech-icon" data-tooltip="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
-      <div class="tech-icon" data-tooltip="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
-      <div class="tech-icon" data-tooltip="GitHub"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></div>
-      <div class="tech-icon" data-tooltip="JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
-      <div class="tech-icon" data-tooltip="HTML"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></div>
-      <div class="tech-icon" data-tooltip="CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"></div>
+
+        <div class="tech-icon" data-tooltip="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
+
+        <div class="tech-icon" data-tooltip="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+
+        <div class="tech-icon" data-tooltip="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
+
+        <div class="tech-icon" data-tooltip="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
+
+        <div class="tech-icon" data-tooltip="GitHub"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></div>
+
+        <div class="tech-icon" data-tooltip="JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+
+        <div class="tech-icon" data-tooltip="HTML"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></div>
+
+        <div class="tech-icon" data-tooltip="CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"></div>
+
     </div>
   </div>
 </section>
+
+<!-- === CONTACT === -->
+ <section id="contact" class="section contact">
+
+    <div class="section__inner">
+        <span class="eyebrow reveal">Contato</span>
+        <h2 class="section__title reveal">Bora conversar?</h2>
+        <p class="section__lead reveal">
+            Lorem ipsum dolor sit amet — aberto a oportunidades como desenvolvedor. Me chama.
+        </p>
+
+        <div class="contact__grid">
+            <form
+                class="contact__form reveal"
+                id="contactForm" 
+                action="https://formspree.io/f/mdennvry" 
+                method="POST">
+                <div class="field">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="field">
+                    <label for="message">Mensagem</label>
+                    <textarea name="message" id="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn--primary">Enviar</button>
+                <p class="form-status" id="formStatus" role="status"></p>
+            </form>
+
+            <div class="contact__links reveal">
+                <a href="mailto:jonasrochacursos@gmail.com" class="contact-link">
+                    <span>E-mail</span>
+                    <strong>jonasrochacursos@gmail.com</strong>
+                </a>
+                <a href="https://github.com/joansrocha98" target="_blank" rel="noopener" class="contact-link">
+                    <span>Github</span>
+                    <strong>github.com/jonasrocha98</strong>
+                </a>
+                <a href="https://linkedin.com/in/jonasrocha98" target="_blank" rel="noopener" class="contact-link">
+                    <span>linkedIn</span>
+                    <strong>linkedin.com/in/jonasrocha98</strong>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+ </section>
 
     <script src="js/script.js"></script>
 </body>
