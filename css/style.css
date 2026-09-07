@@ -1,3 +1,29 @@
+/* === DESIGN TOKENS === */
+/* Previously in css/tokens.css; kept here as the single source. */
+:root{
+    --bg-base: #1b1712;
+    --bg-elevated: #2a2318;
+    --bg-elevated-2: #241E14;
+
+    --text-primary: #ede4d3;
+    --text-secondary: #a89a82;
+
+    --accent-moss: #7a9b6e;
+    --accent-moss-dim: #5C7A53;
+    --accent-amber: #e8b563;
+
+    --line: #3d3527;
+
+    /* Fonts */
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --section-pad: 7rem;
+    --content-width: 1120px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -54,7 +80,7 @@ button{
   mix-blend-mode: overlay;
 }
 
-/*===TYPOGRAPHY / LAYOUT HELPERS===*/
+/* === TYPOGRAPHY / LAYOUT HELPERS === */
 .eyebrow{
     display: block;
     font-family: var(--font-mono);
@@ -119,7 +145,7 @@ section:nth-of-type(even){
     transition-delay: 0.15s;
 }
 
-/*===NAV===*/
+/* === NAV === */
 .nav{
     position: fixed;
     top: 0;
@@ -130,7 +156,6 @@ section:nth-of-type(even){
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 2rem;
-    background: var(--bg-base);
     transition: all 0.35s var(--ease, ease);
 }
 
@@ -268,9 +293,12 @@ section:nth-of-type(even){
     font-style: italic;
 }
 
-.hero__hole{
+.hero__role{
     font-family: var(--font-mono);
+    font-size: 0.9rem;
     color: var(--accent-moss);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
 }
 
 .hero__desc{
@@ -287,7 +315,6 @@ section:nth-of-type(even){
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 30px 40px rgba(0,0,0,0.5));
-    position: relative;
 }
 
 .hero__image-wrap{
@@ -304,20 +331,6 @@ section:nth-of-type(even){
     justify-content: center;
     position: relative;
 }
-
-/*==Efeito em análise==
-.hero__figure::before{
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(232, 181, 99, 0.25) 0%, rgba(232, 181, 99, 0) 70%);
-    z-index: 0;
-}
-*/
 
 .badge {
     display: inline-flex;
@@ -345,7 +358,7 @@ section:nth-of-type(even){
     50% {opacity: 0.3;}
 }
 
-/*Botões*/
+/* === BUTTONS === */
 .hero__actions{
     display: flex;
     gap: 1rem;
@@ -435,7 +448,7 @@ section:nth-of-type(even){
     50% {opacity: 0;}
 }
 
-/*===PROJECTS===*/
+/* === PROJECTS === */
 
 .carousel-nav{
     display: flex;
@@ -480,7 +493,7 @@ section:nth-of-type(even){
     overflow: hidden;
     flex: 0 0 min(380px, 85vw);
     scroll-snap-align: start;
-    transition: border-color 0.3s ease, transform 0.4 var(--ease), box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.4s var(--ease), box-shadow 0.3s ease;
 }
 
 .project-card:hover{
@@ -532,7 +545,7 @@ section:nth-of-type(even){
 }
 
 .project-card__body{
-    padding: 1.5rem;;
+    padding: 1.5rem;
 }
 
 .project-card__body--center {
@@ -584,7 +597,7 @@ section:nth-of-type(even){
     text-decoration: underline;
 }
 
-/* === MODAL PROJECT === */
+/* === PROJECT MODAL === */
 .project-modal{
     background: var(--bg-elevated);
     color: var(--text-primary);
@@ -604,17 +617,14 @@ section:nth-of-type(even){
 }
 
 .project-modal__close{
-    color: var(--text-secondary);
     font-size: 1.6rem;
     float: right;
     line-height: 1;
-    border-color: var(--text-secondary);
     width: 42px; height: 42px;
     border-radius: 50%;
     border: 1px solid var(--line);
     background: none;
     color: var(--text-primary);
-    
 }
 
 .project-modal__close:hover{
