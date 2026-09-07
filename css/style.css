@@ -156,7 +156,6 @@ section:nth-of-type(even){
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 2rem;
-    background: var(--bg-base);
     transition: all 0.35s var(--ease, ease);
 }
 
