@@ -178,9 +178,11 @@
   }
 
   // === PROJECT MODALS ===
+  // NOTE: each card's <h3> and <ul class="project-card__tags"> in index.html
+  // must mirror the title/tags here until the cards are rendered from this data.
   const projectData = {
     'gyro': {
-      title: 'Giro Serviços',
+      title: 'Gyro Serviços',
       tags: ['Flask', 'PostgreSQL', 'Docker', 'JS vanilla'],
       description: `Sistema web interno para controlar as manutenções preventivas da frota (troca de óleo, filtros, etc.) com base na quilometragem de cada caminhão. Cada serviço tem um intervalo de KM por categoria de veículo; o sistema calcula o que está vencido / vencendo / em dia e mostra num painel.`,
       images: ['assets/projects/gyro01.png'] // adicionar caminhos de imagens reais aqui quando tiver
