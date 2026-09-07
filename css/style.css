@@ -1,4 +1,5 @@
-/* === DESIGN TOKENS (previously in css/tokens.css) === */
+/* === DESIGN TOKENS === */
+/* Previously in css/tokens.css; kept here as the single source. */
 :root{
     --bg-base: #1b1712;
     --bg-elevated: #2a2318;
@@ -79,7 +80,7 @@ button{
   mix-blend-mode: overlay;
 }
 
-/*===TYPOGRAPHY / LAYOUT HELPERS===*/
+/* === TYPOGRAPHY / LAYOUT HELPERS === */
 .eyebrow{
     display: block;
     font-family: var(--font-mono);
@@ -144,7 +145,7 @@ section:nth-of-type(even){
     transition-delay: 0.15s;
 }
 
-/*===NAV===*/
+/* === NAV === */
 .nav{
     position: fixed;
     top: 0;
@@ -330,20 +331,6 @@ section:nth-of-type(even){
     position: relative;
 }
 
-/*==Efeito em análise==
-.hero__figure::before{
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(232, 181, 99, 0.25) 0%, rgba(232, 181, 99, 0) 70%);
-    z-index: 0;
-}
-*/
-
 .badge {
     display: inline-flex;
     align-items: center;
@@ -370,7 +357,7 @@ section:nth-of-type(even){
     50% {opacity: 0.3;}
 }
 
-/*Botões*/
+/* === BUTTONS === */
 .hero__actions{
     display: flex;
     gap: 1rem;
@@ -460,7 +447,7 @@ section:nth-of-type(even){
     50% {opacity: 0;}
 }
 
-/*===PROJECTS===*/
+/* === PROJECTS === */
 
 .carousel-nav{
     display: flex;
@@ -609,7 +596,7 @@ section:nth-of-type(even){
     text-decoration: underline;
 }
 
-/* === MODAL PROJECT === */
+/* === PROJECT MODAL === */
 .project-modal{
     background: var(--bg-elevated);
     color: var(--text-primary);

@@ -6,7 +6,7 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('nav--scrolled', window.scrollY > 40);
 });
 
-// === MENU MOBILE ===
+// === MOBILE MENU ===
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -74,7 +74,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 revealEls.forEach(el => revealObserver.observe(el));
 
-// === CAROUSEL PROJECTS ===
+// === PROJECTS CAROUSEL ===
 const track = document.getElementById('projectsTrack');
 const prevBtn = document.getElementById('prevProject');
 const nextBtn = document.getElementById('nextProject');
@@ -98,7 +98,7 @@ track.addEventListener('scroll', updateCarouselButtons, { passive: true });
 window.addEventListener('load', updateCarouselButtons);
 window.addEventListener('resize', updateCarouselButtons);
 
-// === ANIMATED COUNTER (STATS)===
+// === ANIMATED COUNTER (STATS) ===
 const statNumbers = document.querySelectorAll('.stat__number');
 
 function animatedCount(el){
@@ -191,7 +191,7 @@ modal.addEventListener('click', (e) =>{
   if(clickedOutside) modal.close();
 });
 
-// === TECH MARQUEE (infinite, hover to slow ===
+// === TECH MARQUEE (infinite, hover to slow) ===
 const marquee = document.getElementById('techMarquee');
 const marqueeTrack = document.getElementById('techMarqueeTrack');
 
