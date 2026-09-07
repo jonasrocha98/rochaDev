@@ -80,12 +80,13 @@
       let delay = isDeleting ? 60 : 100;
 
       if (!isDeleting && charIndex === currentMessage.length) {
-        delay = 1800; // pause at the end of the sentence, before deleting
+        // fully typed: hold longer on the last message, with it still on screen
+        delay = isLastMessage ? 15000 : 1800;
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         messageIndex = (messageIndex + 1) % typewriterMessages.length;
-        delay = isLastMessage ? 15000 : 400; // pause before starting the next one
+        delay = 400; // short gap before the next message starts
       }
 
       setTimeout(typeLoop, delay);
