@@ -8,6 +8,32 @@
  */
 (function () {
 
+  // --- Tuning constants ----------------------------------------------------
+  // Contracts with other files — must be kept in sync:
+  const CARD_GAP_PX = 24;          // matches `gap` on .projects-track in style.css
+  const MARQUEE_ICON_COUNT = 8;    // matches the number of .tech-icon nodes in index.html
+
+  const NAV_SHRINK_SCROLL_PX = 40; // scroll distance before the nav pill shrinks
+
+  const TYPE_CHAR_MS = 100;        // per character while typing
+  const TYPE_DELETE_MS = 60;       // per character while deleting
+  const TYPE_SENTENCE_HOLD_MS = 1800;  // hold a finished sentence before deleting
+  const TYPE_LAST_HOLD_MS = 15000; // longer hold on the final message
+  const TYPE_NEXT_GAP_MS = 400;    // gap before the next message starts
+
+  const REVEAL_THRESHOLD = 0.15;
+  const REVEAL_ROOT_MARGIN = '0px 0px -40px 0px';
+
+  const COUNTER_DURATION_MS = 1200;
+  const COUNTER_VISIBLE_RATIO = 0.5;   // fraction of a stat visible before it counts up
+
+  const MARQUEE_FILL_VIEWPORT_MULT = 2.5; // fill the track to this multiple of the viewport
+  const MARQUEE_SPEED_NORMAL = 0.4;    // px per frame
+  const MARQUEE_SPEED_SLOW = 0.08;     // px per frame while hovered
+  const MARQUEE_SPEED_EASING = 0.05;   // lerp factor toward the target speed
+  const SCROLL_END_SLACK_PX = 2;       // tolerance when deciding "scrolled to the end"
+  // -----------------------------------------------------------------------
+
   function init() {
     initNav();
     initMobileMenu();
@@ -27,7 +53,7 @@
     if (!nav) return console.warn('[nav] .nav not found');
 
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+      nav.classList.toggle('nav--scrolled', window.scrollY > NAV_SHRINK_SCROLL_PX);
     });
   }
 
@@ -77,16 +103,16 @@
 
       typewriterEl.textContent = currentMessage.substring(0, charIndex);
 
-      let delay = isDeleting ? 60 : 100;
+      let delay = isDeleting ? TYPE_DELETE_MS : TYPE_CHAR_MS;
 
       if (!isDeleting && charIndex === currentMessage.length) {
         // fully typed: hold longer on the last message, with it still on screen
-        delay = isLastMessage ? 15000 : 1800;
+        delay = isLastMessage ? TYPE_LAST_HOLD_MS : TYPE_SENTENCE_HOLD_MS;
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         messageIndex = (messageIndex + 1) % typewriterMessages.length;
-        delay = 400; // short gap before the next message starts
+        delay = TYPE_NEXT_GAP_MS; // short gap before the next message starts
       }
 
       setTimeout(typeLoop, delay);
@@ -107,7 +133,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: REVEAL_THRESHOLD, rootMargin: REVEAL_ROOT_MARGIN });
 
     revealEls.forEach(el => revealObserver.observe(el));
   }
@@ -122,12 +148,12 @@
     function scrollByCard(direction) {
       const card = track.querySelector('.project-card');
       if (!card) return;
-      const cardWidth = card.getBoundingClientRect().width + 24; // 24px = gap
+      const cardWidth = card.getBoundingClientRect().width + CARD_GAP_PX;
       track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
     }
 
     function updateCarouselButtons() {
-      const maxScroll = track.scrollWidth - track.clientWidth - 2;
+      const maxScroll = track.scrollWidth - track.clientWidth - SCROLL_END_SLACK_PX;
       prevBtn.disabled = track.scrollLeft <= 0;
       nextBtn.disabled = track.scrollLeft >= maxScroll;
     }
@@ -153,7 +179,7 @@
       }
 
       const targetNum = parseInt(target, 10);
-      const duration = 1200;
+      const duration = COUNTER_DURATION_MS;
       const startTime = performance.now();
 
       function step(now) {
@@ -173,7 +199,7 @@
           statsObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: COUNTER_VISIBLE_RATIO });
 
     statNumbers.forEach(el => statsObserver.observe(el));
   }
@@ -243,8 +269,8 @@
     function fillTrack() {
       marqueeTrack.innerHTML = originalTrackHTML;
 
-      // repeatedly doubles until the track is at 2.5x wider than the visible screen
-      while (marqueeTrack.scrollWidth < marquee.clientWidth * 2.5) {
+      // repeatedly doubles until the track is wide enough to loop seamlessly
+      while (marqueeTrack.scrollWidth < marquee.clientWidth * MARQUEE_FILL_VIEWPORT_MULT) {
         marqueeTrack.innerHTML += originalTrackHTML;
       }
     }
@@ -252,20 +278,18 @@
     fillTrack();
 
     let position = 0;
-    const normalSpeed = 0.4;
-    const slowSpeed = 0.08;
-    let currentSpeed = normalSpeed;
-    let targetSpeed = normalSpeed;
+    let currentSpeed = MARQUEE_SPEED_NORMAL;
+    let targetSpeed = MARQUEE_SPEED_NORMAL;
 
-    marquee.addEventListener('mouseenter', () => { targetSpeed = slowSpeed; });
-    marquee.addEventListener('mouseleave', () => { targetSpeed = normalSpeed; });
+    marquee.addEventListener('mouseenter', () => { targetSpeed = MARQUEE_SPEED_SLOW; });
+    marquee.addEventListener('mouseleave', () => { targetSpeed = MARQUEE_SPEED_NORMAL; });
 
     function animateMarquee() {
-      currentSpeed += (targetSpeed - currentSpeed) * 0.05;
+      currentSpeed += (targetSpeed - currentSpeed) * MARQUEE_SPEED_EASING;
       position -= currentSpeed;
 
       // It resets after traveling the width of ONE original set (not the entire track).
-      const singleSetWidth = marqueeTrack.scrollWidth / (marqueeTrack.children.length / 8); // 8 = number of original icons
+      const singleSetWidth = marqueeTrack.scrollWidth / (marqueeTrack.children.length / MARQUEE_ICON_COUNT);
       if (position <= -singleSetWidth) {
         position += singleSetWidth;
       }
