@@ -294,9 +294,12 @@ section:nth-of-type(even){
     font-style: italic;
 }
 
-.hero__hole{
+.hero__role{
     font-family: var(--font-mono);
+    font-size: 0.9rem;
     color: var(--accent-moss);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
 }
 
 .hero__desc{
@@ -313,7 +316,6 @@ section:nth-of-type(even){
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 30px 40px rgba(0,0,0,0.5));
-    position: relative;
 }
 
 .hero__image-wrap{
@@ -492,7 +494,7 @@ section:nth-of-type(even){
     overflow: hidden;
     flex: 0 0 min(380px, 85vw);
     scroll-snap-align: start;
-    transition: border-color 0.3s ease, transform 0.4 var(--ease), box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.4s var(--ease), box-shadow 0.3s ease;
 }
 
 .project-card:hover{
@@ -544,7 +546,7 @@ section:nth-of-type(even){
 }
 
 .project-card__body{
-    padding: 1.5rem;;
+    padding: 1.5rem;
 }
 
 .project-card__body--center {
@@ -616,17 +618,14 @@ section:nth-of-type(even){
 }
 
 .project-modal__close{
-    color: var(--text-secondary);
     font-size: 1.6rem;
     float: right;
     line-height: 1;
-    border-color: var(--text-secondary);
     width: 42px; height: 42px;
     border-radius: 50%;
     border: 1px solid var(--line);
     background: none;
     color: var(--text-primary);
-    
 }
 
 .project-modal__close:hover{
