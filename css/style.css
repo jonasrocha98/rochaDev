@@ -497,7 +497,7 @@ section:nth-of-type(even){
 }
 
 .project-card:hover{
-    border-color: var(--accent-moss);
+    border-color: var(--accent-amber);
     transform: translateY(2px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
@@ -723,31 +723,6 @@ section:nth-of-type(even){
     margin-bottom: 1.5rem;
 }
 
-.about__stats{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.stat{
-    padding: 1.1rem;
-    background: var(--bg-elevated);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-}
-
-.stat__number{
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.7rem;
-    color: var(--accent-amber);
-}
-
-.stat__label{
-    font-size: 0.78rem;
-    color: var(--text-secondary);
-}
 
 /* === STACK === */
 .tech-showcase{
@@ -823,6 +798,8 @@ section:nth-of-type(even){
   opacity: 1;
 }
 
+
+
 /* === CONTACT === */
 .contact__grid{
     display: grid;
@@ -850,8 +827,9 @@ section:nth-of-type(even){
     font-size: 0.95rem;
     transition: border-color 0.25s ease;
 }
+
 .field input:focus, .field textarea:focus{
-    border-color: var(--accent-moss);
+    border-color: var(--accent-amber);
     outline: none;
 }
 
