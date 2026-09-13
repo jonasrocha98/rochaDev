@@ -11,7 +11,7 @@
   // --- Tuning constants ----------------------------------------------------
   // Contracts with other files — must be kept in sync:
   const CARD_GAP_PX = 24;          // matches `gap` on .projects-track in style.css
-  const MARQUEE_ICON_COUNT = 8;    // matches the number of .tech-icon nodes in index.html
+  const MARQUEE_ICON_COUNT = 9;    // matches the number of .tech-icon nodes in index.html
 
   const NAV_SHRINK_SCROLL_PX = 40; // scroll distance before the nav pill shrinks
 
