@@ -21,8 +21,8 @@
   const TYPE_LAST_HOLD_MS = 15000; // longer hold on the final message
   const TYPE_NEXT_GAP_MS = 400;    // gap before the next message starts
 
-  const REVEAL_THRESHOLD = 0.15;
-  const REVEAL_ROOT_MARGIN = '0px 0px -40px 0px';
+  const REVEAL_THRESHOLD = 0.30;
+  const REVEAL_ROOT_MARGIN = '0px 0px -60px 0px';
 
   const COUNTER_DURATION_MS = 1200;
   const COUNTER_VISIBLE_RATIO = 0.5;   // fraction of a stat visible before it counts up
@@ -211,8 +211,8 @@
     'gyro': {
       title: 'Gyro Serviços',
       tags: ['Flask', 'PostgreSQL', 'Docker', 'JS vanilla'],
-      description: `Sistema web interno para controlar as manutenções preventivas da frota (troca de óleo, filtros, etc.) com base na quilometragem de cada caminhão. Cada serviço tem um intervalo de KM por categoria de veículo; o sistema calcula o que está vencido / vencendo / em dia e mostra num painel.`,
-      images: ['assets/projects/gyro01.png'] // adicionar caminhos de imagens reais aqui quando tiver
+      description: `Sistema web interno para controlar as manutenções preventivas da frota (troca de óleo, filtros, etc.) com base na quilometragem de cada caminhão. Cada serviço tem um intervalo de KM por categoria de veículo; o sistema calcula o que está vencido / vencendo e em dia e mostra num painel, que é acessível via mobile. Atualmente estou desenvolvendo uma versão open source em Java.`,
+      images: ['assets/projects/gyro01.png', ''] // adicionar caminhos de imagens reais aqui quando tiver
     }
   };
 

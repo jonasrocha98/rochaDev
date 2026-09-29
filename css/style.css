@@ -647,7 +647,6 @@ section:nth-of-type(even){
 }
 .modal-gallery img{
     border-radius: 10px;
-    aspect-ratio: 16/10;
     object-fit: cover;
     width: 100%;
 }
@@ -718,12 +717,12 @@ section:nth-of-type(even){
 }
 
 .about__text p{
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 1.1rem;
 }
 
 .about__extra{
-    color: var(--text-primary) !important;
+    color: var(--text-secondary) !important;
     padding-left: 1rem;
     border-left: 2px solid var(--accent-amber);
     margin-bottom: 1.5rem;
@@ -828,10 +827,9 @@ section:nth-of-type(even){
 .study-focus__list li {
     font-size: 0.9rem;
     padding: 0.4rem 1rem;
-    border: 1px solid var(--accent-moss);
     border-radius: 8px;
-    color: #EDE4D3;
     background: rgba(122, 155, 110, 0.08);
+    font-family: var(--font-mono);
 }
 
 /* === CONTACT === */
